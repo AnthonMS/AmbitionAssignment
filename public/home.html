@@ -1,1 +1,63 @@
-<h1>Hello, World!</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brewpubs</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </link>
+</head>
+
+<body>
+
+  <div style="padding-top: 2rem; margin: 0px auto; max-width: 700px;">
+
+    <form _lpchecked="1">
+      <div class="form-row">
+        <div class="form-group col-md-12"><label for="search">Search</label><input type="text" class="form-control"
+            id="search" placeholder="New York"></div>
+      </div>
+      <label class="btn btn-primary" id="search-btn">Search</label>
+    </form>
+
+    <ul class="list-group list-group-flush py-2" id="brewery-list">
+<!-- 
+      <li class="list-group-item">
+        <div>
+          <div class="card-body">
+            <h5 class="card-title">Mel's Micro</h5>
+            <h6 class="card-subtitle mb-2">brewpub</h6>
+            <h6 class="card-subtitle mb-2 text-muted">Wisconsin - Richland Center</h6><a href="http://www.melsmicro.com"
+              class="card-link">Link to website</a>
+          </div>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div>
+          <div class="card-body">
+            <h5 class="card-title">Mel's Micro</h5>
+            <h6 class="card-subtitle mb-2">brewpub</h6>
+            <h6 class="card-subtitle mb-2 text-muted">Wisconsin - Richland Center</h6><a href="http://www.melsmicro.com"
+              class="card-link">Link to website</a>
+          </div>
+        </div>
+      </li> -->
+
+    </ul>
+
+    <nav style="padding: 2rem; text-align: center;"><button class="btn-secondary" id="load-more-btn">Load more</button></nav>
+
+  </div>
+
+    <!-- ================================================== -->
+    <!-- Imports placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.js" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.js" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
