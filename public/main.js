@@ -3,51 +3,18 @@ $(document).ready(function() {
     var page = 1;
     
     $("#search-btn").click(function(event){
-        // console.log($("#search").val());
         // When Clicking search, the list should empty to show new results.
         $("#brewery-list").empty();
-
-        // https://api.openbrewerydb.org/breweries/search?query=Death%20Avenue&per_page=5&page=1
-        var searchStr = encodeURI($("#search").val());
-        $.ajax({
-            type: "GET",
-            url: `https://api.openbrewerydb.org/breweries/search?query=${searchStr}&per_page=5&page=1`,
-            success: function(data){
-                console.log(data);
-                loadBreweryInUI(data);
-                page = page + 1
-            },
-            fail: function(data) {
-                console.log("FAILED");
-            },
-            always: function(data) {
-                console.log("ALWAYS");
-            }
-        });
+        page = 1; // Set Page to 1 before new search
+        searchBrewery($("#search").val(), page);
+        page = page + 1;
 
     });
 
     
     $("#load-more-btn").click(function(event){
-        // console.log("Load More");
-
-        // https://api.openbrewerydb.org/breweries/search?query=Death%20Avenue&per_page=5&page=1
-        var searchStr = encodeURI($("#search").val());
-        $.ajax({
-            type: "GET",
-            url: `https://api.openbrewerydb.org/breweries/search?query=${searchStr}&per_page=5&page=${page}`,
-            success: function(data){
-                // console.log(data);
-                loadBreweryInUI(data);
-                page = page + 1
-            },
-            fail: function(data) {
-                console.log("FAILED");
-            },
-            always: function(data) {
-                console.log("ALWAYS");
-            }
-        });
+        searchBrewery($("#search").val(), page);
+        page = page + 1;
 
     });
 
@@ -55,11 +22,27 @@ $(document).ready(function() {
 });
 
 
+function searchBrewery(searchStr, currentPage) {
+    var searchStr = encodeURI(searchStr);
+    $.ajax({
+        type: "GET",
+        url: `https://api.openbrewerydb.org/breweries/search?query=${searchStr}&per_page=5&page=${currentPage}`,
+        success: function(data){
+            loadBreweryInUI(data);
+        },
+        fail: function(data) {
+            console.log("FAILED");
+        },
+        always: function(data) {
+            console.log("ALWAYS");
+        }
+    });
+}
+
+
+
 function loadBreweryInUI(data) {
-    // console.log(data);
     for (i = 0; i < data.length; i++) {
-        // console.log(data[i]);
-        // We Need name, brewery_type, state, city, website_url
         var breweryElement = $(`
         <li class="list-group-item">
           <div>
