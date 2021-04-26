@@ -4,6 +4,8 @@ $(document).ready(function() {
     
     $("#search-btn").click(function(event){
         // console.log($("#search").val());
+        // When Clicking search, the list should empty to show new results.
+        $("#brewery-list").empty();
 
         // https://api.openbrewerydb.org/breweries/search?query=Death%20Avenue&per_page=5&page=1
         var searchStr = encodeURI($("#search").val());
