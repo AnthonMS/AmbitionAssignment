@@ -1,6 +1,14 @@
 $(document).ready(function() {
     console.log("Main Script Loaded");
     var page = 1;
+
+    $("#search-form").submit(function() {
+        $("#brewery-list").empty();
+        page = 1; // Set Page to 1 before new search
+        searchBrewery($("#search").val(), page);
+        page = page + 1;
+        return false;
+    });
     
     $("#search-btn").click(function(event){
         // When Clicking search, the list should empty to show new results.
